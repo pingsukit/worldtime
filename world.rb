@@ -62,10 +62,28 @@ begin
 	puts time_a
 	puts display_time
 
-  "The current time in #{input_city} is: #{time_a}"
-rescue
+	daytime=""
+
+	temp_time = time_a.split(':')
+	hour = temp_time[0]
+	min = temp_time[1]
+	if hour.to_i > 12 
+		show_hour = hour.to_i - 12
+		daytime = "PM"
+	else 
+		show_hour = hour
+		daytime = "AM"
+	end
+	 "The current time in #{params[:message]} is: " + "<br>" + "<br>" + "<br>" + show_hour.to_s + ":" + min.to_s + daytime
+	rescue
 	"Can't find the time of #{input_city}"
 end
+
+
+#   "The current time in #{input_city} is: #{time_a}"
+# rescue
+# 	"Can't find the time of #{input_city}"
+# end
  
 
 end
